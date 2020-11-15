@@ -7,28 +7,36 @@ import colors from "../utils/colors";
 import { ReactComponent as arrow } from "../images/right-thin-chevron-svgrepo-com.svg";
 
 /////////////////////////////////////////////APP///////////////////////////
-export const AppDiv = styled.div`
-  display: inline-block;
-`;
+export const AppDiv = styled.div``;
 
 export const SearchBox = styled(Search)`
-  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
 `;
 
 export const AppBody = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  height: 100%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 100vh;
 `;
 export const AppBodyContainers = styled.div`
   display: flex;
+  flex-flow: row wrap;
 `;
 export const ContainerBox = styled(Container)`
-  width: 200px;
+  width: 150px;
 `;
 
 export const FilterBox = styled(Filter)`
-  height: 100%;
+  display: flex;
+  flex: 0 0 100px;
+  flex-flow: column nowrap;
+  text-align: center;
+  z-index: 30;
+
+  justify-content: flex-start;
 `;
 
 ///////////////////////////////////////////CONTAINER////////////////////////////////
