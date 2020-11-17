@@ -7,26 +7,35 @@ import colors from "../utils/colors";
 import { ReactComponent as arrow } from "../images/right-thin-chevron-svgrepo-com.svg";
 
 /////////////////////////////////////////////APP///////////////////////////
-export const AppDiv = styled.div``;
+export const AppDiv = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr auto;
+  justify-content: center;
+`;
 
 export const SearchBox = styled(Search)`
   padding: 10px;
-  display: flex;
-  flex-flow: row nowrap;
+  grid-column-start: 1;
+  grid-column-end: 6;
 `;
 
 export const AppBody = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  height: 100vh;
+  height: 200vh;
 `;
 export const AppBodyContainers = styled.div`
   display: flex;
   flex-flow: row wrap;
 `;
 export const ContainerBox = styled(Container)`
-  width: 150px;
+  width: 200px;
 `;
 
 export const FilterBox = styled(Filter)`
@@ -35,7 +44,6 @@ export const FilterBox = styled(Filter)`
   flex-flow: column nowrap;
   text-align: center;
   z-index: 30;
-
   justify-content: flex-start;
 `;
 
@@ -112,7 +120,6 @@ export const FilterForm = styled.form`
   align-self: flex-start;
   background-color: ${colors.gray};
   text-align: center;
-  padding-top: 20px;
   -webkit-transition-property: width;
   -webkit-transition-duration: 0.3s;
   -webkit-transition-timing-function: ease-in-out;
@@ -150,6 +157,7 @@ export const FilterCheck = styled.input`
 `;
 export const FilterParagraph = styled.p`
   opacity: ${(props) => (props.isNavOpen ? "0" : "1")};
+  padding: 10px;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 0.2s;
   -webkit-transition-timing-function: ease-in-out;
@@ -157,6 +165,7 @@ export const FilterParagraph = styled.p`
 `;
 export const FilterInput = styled.input`
   opacity: ${(props) => (props.isNavOpen ? "0" : "1")};
+  margin: 10px;
   -webkit-transition-property: opacity;
   -webkit-transition-duration: 0.2s;
   -webkit-transition-timing-function: ease-in-out;
@@ -173,6 +182,10 @@ export const FilterButton = styled.button`
 ///////////////////////////////////////////////////SEARCH////////////////////////////////////
 
 export const SearchContainer = styled.div`
+  grid-column-start: 1;
+  grid-column-end: 6;
+  justify-self: center;
+  align-selft: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
