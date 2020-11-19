@@ -5,26 +5,29 @@ import Search from "./Search";
 import { ReactComponent as filter } from "../images/filter.svg";
 import colors from "../utils/colors";
 import { ReactComponent as arrow } from "../images/right-thin-chevron-svgrepo-com.svg";
-
+import Header from "./Header";
+import { ReactComponent as logo } from "../images/YouVisit_Logo_RGB.svg";
+import { ReactComponent as userLoginIcon } from "../images/user.svg";
 /////////////////////////////////////////////APP///////////////////////////
 export const AppDiv = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr auto;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const AppHeader = styled(Header)`
+  padding: 20px;
+  display: flex;
 `;
 
 export const SearchBox = styled(Search)`
   padding: 10px;
-  grid-column-start: 1;
-  grid-column-end: 6;
+  grid-column: 1/4;
+  grid-row: 2/3;
 `;
 
 export const AppBody = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-
+  grid-column: 1/4;
+  grid-row: 3;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -32,7 +35,8 @@ export const AppBody = styled.div`
 `;
 export const AppBodyContainers = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
+  flex-wrap: wrap;
 `;
 export const ContainerBox = styled(Container)`
   width: 200px;
@@ -54,11 +58,10 @@ export const Para = styled.p`
   position: absolute;
   left: 50%;
   bottom: 1px;
-  transform: translate(-50%, -50%);
+
   font-size: auto;
   font-weight: bold;
   color: white;
-
   font-family: Arial, Helvetica, sans-serif;
 `;
 
@@ -78,10 +81,11 @@ export const HoverCard = styled.div`
 `;
 
 export const ContainerMain = styled.div`
-  flex-wrap: wrap;
+  display: flex;
   justify-content: center;
+  align-items: flex-end;
   width: 400px;
-  height: auto;
+  height: 250px;
   position: relative;
   margin: 10px;
   overflow: hidden;
@@ -93,6 +97,7 @@ export const ContainerMain = styled.div`
 
 export const ContainerImg = styled.img`
   width: 100%;
+  height: 100%;
 `;
 
 export const IconImg = styled.img`
@@ -238,4 +243,41 @@ export const SearchButton = styled.button`
   background-color: ${colors.blue};
   margin-right: 5px;
   color: ${colors.white};
+`;
+
+//////////////////////HEADER///////////////////////
+
+export const HeaderDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100px;
+`;
+
+export const HeaderLeftDiv = styled.div`
+  margin: 20px;
+  display: flex;
+  justify-self: flex-start;
+  align-items: center;
+`;
+
+export const HeaderRightDiv = styled.div`
+  margin: 20px;
+  display: flex;
+  justify-self: flex-end;
+`;
+
+export const HeaderLogo = styled(logo)`
+  width: 200px;
+`;
+
+export const HeaderLoginIcon = styled(userLoginIcon)`
+  width: 50px;
+`;
+
+export const HeaderPara = styled.p`
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
 `;

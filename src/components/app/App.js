@@ -6,6 +6,7 @@ import {
   AppBody,
   AppDiv,
   AppBodyContainers,
+  AppHeader,
 } from "../StyledComponents";
 import "./App.css";
 import API from "../../actions/ApiConsumer";
@@ -72,6 +73,7 @@ const App = (props) => {
 
   return (
     <AppDiv>
+      <AppHeader />
       <SearchBox onChildChange={handleChildChange} />
       <AppBody>
         <FilterBox onFilterChange={onFilterChangeFromParent} />
