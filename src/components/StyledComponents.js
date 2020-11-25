@@ -8,10 +8,13 @@ import { ReactComponent as arrow } from "../images/right-thin-chevron-svgrepo-co
 import Header from "./Header";
 import { ReactComponent as logo } from "../images/YouVisit_Logo_RGB.svg";
 import { ReactComponent as userLoginIcon } from "../images/user.svg";
+
 /////////////////////////////////////////////APP///////////////////////////
 export const AppDiv = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;
 
 export const AppHeader = styled(Header)`
@@ -21,34 +24,34 @@ export const AppHeader = styled(Header)`
 
 export const SearchBox = styled(Search)`
   padding: 10px;
-  grid-column: 1/4;
-  grid-row: 2/3;
 `;
 
 export const AppBody = styled.div`
-  grid-column: 1/4;
-  grid-row: 3;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
-  height: 200vh;
+
+  width: 100%;
+  height: 100%;
 `;
 export const AppBodyContainers = styled.div`
   display: flex;
-  flex-flow: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
 `;
-export const ContainerBox = styled(Container)`
-  width: 200px;
+
+export const FilterDiv = styled.div`
+  height: auto;
+  background-color: ${colors.gray};
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  flex-flow: column nowrap;
 `;
 
 export const FilterBox = styled(Filter)`
-  display: flex;
-  flex: 0 0 100px;
-  flex-flow: column nowrap;
   text-align: center;
-  z-index: 30;
-  justify-content: flex-start;
+  height: 100%;
 `;
 
 ///////////////////////////////////////////CONTAINER////////////////////////////////
@@ -56,10 +59,9 @@ export const Para = styled.p`
   width: 100%;
   margin: 0;
   position: absolute;
-  left: 50%;
-  bottom: 1px;
-
-  font-size: auto;
+  text-align: center;
+  bottom: 5px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -74,30 +76,27 @@ export const HoverCard = styled.div`
   transition: top 0.5s;
   -webkit-transition: top 0.3s;
   -webkit-transition-timing-function: ease-in-out;
-  background: rgba(173, 216, 230, 0.8);
+  background: ${colors.hoverBlue};
   top: 100%;
   color: white;
   text-align: center;
 `;
 
 export const ContainerMain = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: 400px;
-  height: 250px;
+  width: ${(props) => (props.index % 3 === 0 ? "96.5%" : "47.15%")};
+  height: 300px;
   position: relative;
   margin: 10px;
-  overflow: hidden;
   border-radius: 5px;
+  overflow: hidden;
   &:hover ${HoverCard} {
     top: 0;
   }
 `;
 
 export const ContainerImg = styled.img`
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
 `;
 
 export const IconImg = styled.img`
@@ -121,14 +120,14 @@ export const Link = styled.a`
 
 export const FilterForm = styled.form`
   height: 100%;
-  width: ${(props) => (props.isNavOpen ? "50px" : "250px")};
-  align-self: flex-start;
+  min-width: ${(props) => (props.isNavOpen ? "0px" : "287px")};
+
   background-color: ${colors.gray};
   text-align: center;
-  -webkit-transition-property: width;
+  -webkit-transition-property: min-width;
   -webkit-transition-duration: 0.3s;
   -webkit-transition-timing-function: ease-in-out;
-  transition-property: width;
+  transition-property: min-width;
 `;
 
 export const FilterIcon = styled(filter)`
@@ -187,41 +186,48 @@ export const FilterButton = styled.button`
 ///////////////////////////////////////////////////SEARCH////////////////////////////////////
 
 export const SearchContainer = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 6;
   justify-self: center;
   align-selft: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
   height: 200px;
   width: 100%;
-
   background-color: ${colors.gray};
 `;
 
 export const SearchHeader = styled.h2`
+  font-size: 36px;
   font-family: arial;
-  flex: 0, 0, 100%;
   color: ${colors.darkBlue};
+  margin: 0;
 `;
 
 export const SearchParagraph = styled.p`
+  font-size: 20px;
   font-family: arial;
-  flex: 0, 0, 100%;
 `;
 
 export const SearchDiv = styled.div`
   display: flex;
+  justify-content: space-between;
   background-color: ${colors.white};
-  width: 50%;
+  width: 100%;
   height: 70px;
   border-radius: 5px;
   justify-content: space-between;
   align-items: center;
   margin: 20px;
   flex: 0, 0, 100%;
+`;
+
+export const SearchInputForm = styled.form`
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  align-items: center;
 `;
 
 export const SearchInput = styled.input`
@@ -243,6 +249,7 @@ export const SearchButton = styled.button`
   background-color: ${colors.blue};
   margin-right: 5px;
   color: ${colors.white};
+  justify-self: flex-end;
 `;
 
 //////////////////////HEADER///////////////////////

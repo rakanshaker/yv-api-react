@@ -14,7 +14,7 @@ import { ReactNativeNumberFormat } from "../actions/CurrencyFormat";
 
 function Container(props) {
   return (
-    <ContainerMain id="image-box">
+    <ContainerMain id="image-box" index={props.index}>
       <ContainerImg
         id="image"
         src={props.img}

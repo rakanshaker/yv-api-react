@@ -7,6 +7,7 @@ import {
   SearchDiv,
   SearchHeader,
   SearchParagraph,
+  SearchInputForm,
 } from "./StyledComponents";
 
 function Search(props) {
@@ -15,11 +16,17 @@ function Search(props) {
   });
 
   //BUG - When Search is cleared, featured content disappears
+  //after more reading, this is expected, state is rendered with the previous search and only rerendered onchange
+  //maybe useEffect????
+
+  // useEffect(() => {});
   const updateSearch = (ev) => {
+    ev.preventDefault();
     //get input value
     const input = ev.target.value;
     //update state
     setSearch({ ...search, query: input });
+
     console.log(ev.target.value);
     console.log(search.query);
     // console.log(input);
@@ -31,15 +38,16 @@ function Search(props) {
     <SearchContainer>
       <SearchHeader>Find the right college for you</SearchHeader>
       <SearchParagraph>Distance should not limit your search</SearchParagraph>
-      <SearchDiv>
-        <SearchInput
-          type="text"
-          placeholder="Search"
-          onChange={updateSearch}
-          onSubmit={updateSearch}
-        />
-        <SearchButton onSubmit={updateSearch}>Search</SearchButton>
-      </SearchDiv>
+      <SearchInputForm onSubmit={updateSearch}>
+        <SearchDiv>
+          <SearchInput
+            type="text"
+            placeholder="Search"
+            onChange={updateSearch}
+          />
+          <SearchButton type={"submit"}>Search</SearchButton>
+        </SearchDiv>
+      </SearchInputForm>
     </SearchContainer>
   );
 }

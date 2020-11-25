@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
-  ContainerBox,
   SearchBox,
   FilterBox,
+  FilterDiv,
   AppBody,
   AppDiv,
   AppBodyContainers,
@@ -10,6 +10,13 @@ import {
 } from "../StyledComponents";
 import "./App.css";
 import API from "../../actions/ApiConsumer";
+import ContainerMain from "../Container";
+
+// const breakpointColumnsObj = {
+//   default: 3,
+//   1100: 2,
+//   700: 1,
+// };
 
 const SearchAPI = API("https://search.dev.youvisit.com/institution-profiles");
 
@@ -54,7 +61,8 @@ const App = (props) => {
       //need to create unique id
 
       return (
-        <ContainerBox
+        <ContainerMain
+          index={i}
           key={i + profile.name}
           name={profile.institution_name}
           img={profile.yv_profile_img}
@@ -76,7 +84,10 @@ const App = (props) => {
       <AppHeader />
       <SearchBox onChildChange={handleChildChange} />
       <AppBody>
-        <FilterBox onFilterChange={onFilterChangeFromParent} />
+        <FilterDiv>
+          <FilterBox onFilterChange={onFilterChangeFromParent} />
+        </FilterDiv>
+
         <AppBodyContainers>{convertProfiles(profiles)}</AppBodyContainers>
       </AppBody>
     </AppDiv>

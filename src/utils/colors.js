@@ -3,5 +3,6 @@ const colors = {
   blue: "#065fe5",
   darkBlue: "#223762",
   white: "white",
+  hoverBlue: "rgba(173, 216, 230, 0.8)",
 };
 export default colors;
