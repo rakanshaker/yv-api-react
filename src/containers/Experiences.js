@@ -6,25 +6,33 @@ import {
   AppBody,
   AppDiv,
   AppBodyContainers,
+  AppHeader,
   AppCarouselContainers,
-} from "./Styles";
+} from "../StyledComponents";
 import "./App.css";
 import API from "../../actions/ApiConsumer";
-import Card from "../Card";
-import Header from "../Header";
+import ContainerMain from "../Container";
 
+// const breakpointColumnsObj = {
+//   default: 3,
+//   1100: 2,
+//   700: 1,
+// };
+//Todo move this to src/app/
+/**
+ /app/app.js
+ /components/Card.js
+ /containers/Experiences.js
+ */
 const SearchAPI = API("https://search.dev.youvisit.com/institution-profiles");
 
 const App = (props) => {
-  const [allProfiles, setProfiles] = useState({
-    profiles: [],
-    fixedProfiles: [],
-  });
+  const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await SearchAPI.getInstitutionProfiles();
-      setProfiles({ profiles: response, fixedProfiles: response });
+      setProfiles(response);
     };
     fetchData();
   }, []);
@@ -32,7 +40,7 @@ const App = (props) => {
   const executeSearch = async (query) => {
     console.log(query);
     const search = await SearchAPI.getInstitutionProfiles(query);
-    setProfiles({ ...allProfiles, profiles: search });
+    setProfiles(search);
   };
   let pauseSearch;
 
@@ -54,19 +62,18 @@ const App = (props) => {
     // const response = await SearchAPI.getInstitutionProfiles(query);
   };
 
-  const convertProfiles = (profiles = [], isFixedWidth = true) => {
+  const convertProfiles = (profiles = []) => {
     let containers = profiles.map((profile, i) => {
       //need to create unique id
 
       return (
-        <Card
+        <ContainerMain
           index={i}
           key={i + profile.name}
           name={profile.institution_name}
           img={profile.yv_profile_img}
           tuition={profile.instate_tuition}
           link={profile.inst_id}
-          isFixedWidth={isFixedWidth}
           onImageError={(ev) => {
             const currentImage = ev.target;
             currentImage.src =
@@ -80,17 +87,18 @@ const App = (props) => {
 
   return (
     <AppDiv>
-      <Header />
+      <AppHeader />
       <SearchBox onChildChange={handleChildChange} />
       <AppBody>
         <FilterDiv>
           <FilterBox onFilterChange={onFilterChangeFromParent} />
         </FilterDiv>
-        <AppCarouselContainers>
-          {convertProfiles(allProfiles.fixedProfiles)}
-        </AppCarouselContainers>
+
         <AppBodyContainers>
-          {convertProfiles(allProfiles.profiles, false)}
+          <AppCarouselContainers>
+            {convertProfiles(profiles)}
+          </AppCarouselContainers>
+          {convertProfiles(profiles)}
         </AppBodyContainers>
       </AppBody>
     </AppDiv>

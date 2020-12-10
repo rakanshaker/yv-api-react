@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./app/App.css";
 import {
   FilterForm,
   FilterIcon,
@@ -8,7 +7,7 @@ import {
   FilterParagraph,
   FilterInput,
   FilterButton,
-} from "./StyledComponents";
+} from "./Styles";
 function Filter(props) {
   const [state, setState] = useState({
     isOnCampus: false,
@@ -44,7 +43,6 @@ function Filter(props) {
     <FilterForm onSubmit={formSubmit} isNavOpen={state.isNavOpen}>
       <FilterIcon onClick={openNav} isNavOpen={state.isNavOpen} />
       <FilterArrow onClick={openNav} isNavOpen={state.isNavOpen} />
-      <br />
       <FilterCheck
         type="checkbox"
         onChange={setChecked}

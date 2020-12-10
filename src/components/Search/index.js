@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./app/App.css";
+
 import {
   SearchContainer,
   SearchInput,
@@ -8,7 +8,7 @@ import {
   SearchHeader,
   SearchParagraph,
   SearchInputForm,
-} from "./StyledComponents";
+} from "./Styles";
 
 function Search(props) {
   const [search, setSearch] = useState({

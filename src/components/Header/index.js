@@ -6,7 +6,7 @@ import {
   HeaderPara,
   HeaderLeftDiv,
   HeaderRightDiv,
-} from "./StyledComponents";
+} from "./Styles";
 
 function Header() {
   return (
