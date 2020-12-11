@@ -5,8 +5,9 @@ import {
   FilterDiv,
   AppBody,
   AppDiv,
-  AppBodyContainers,
-  AppCarouselContainers,
+  AppBodyCards,
+  AppCarouselCards,
+  CardBox,
 } from "./Styles";
 import "./App.css";
 import API from "../../actions/ApiConsumer";
@@ -86,12 +87,14 @@ const App = (props) => {
         <FilterDiv>
           <FilterBox onFilterChange={onFilterChangeFromParent} />
         </FilterDiv>
-        <AppCarouselContainers>
-          {convertProfiles(allProfiles.fixedProfiles)}
-        </AppCarouselContainers>
-        <AppBodyContainers>
-          {convertProfiles(allProfiles.profiles, false)}
-        </AppBodyContainers>
+        <CardBox>
+          <AppCarouselCards>
+            {convertProfiles(allProfiles.fixedProfiles)}
+          </AppCarouselCards>
+          <AppBodyCards>
+            {convertProfiles(allProfiles.profiles, false)}
+          </AppBodyCards>
+        </CardBox>
       </AppBody>
     </AppDiv>
   );

@@ -4,7 +4,7 @@ import { ReactComponent as arrow } from "../../images/right-thin-chevron-svgrepo
 import { ReactComponent as filter } from "../../images/filter.svg";
 
 export const FilterForm = styled.form`
-  min-width: ${(props) => (props.isNavOpen ? "0px" : "287px")};
+  min-width: ${(props) => (props.isNavOpen ? "0%" : "105%")};
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;

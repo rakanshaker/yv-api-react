@@ -16,10 +16,11 @@ export const SearchBox = styled(Search)`
 `;
 
 export const AppBody = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
 `;
-export const AppBodyContainers = styled.div`
+export const AppBodyCards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -37,8 +38,17 @@ export const FilterBox = styled(Filter)`
   height: 100%;
 `;
 
-export const AppCarouselContainers = styled.div`
+export const AppCarouselCards = styled.div`
   overflow-x: scroll;
   white-space: nowrap;
   padding: 10px;
+`;
+
+export const CardBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `;
